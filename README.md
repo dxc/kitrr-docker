@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Para instalar Docker:
 
 1.- Primero instalar wget:
@@ -42,3 +43,7 @@ Notas:
 - Para iniciar nuevamente un contenedor detenido, $ docker start krr
 - La opción -p indica el puerto a usar. Si se desea cambiar, se debe cambiar el segundo número
 - La opción -it de 'docker run' indica que se vincule el terminal usado con el del contenedor
+=======
+# kitrr-docker
+Script Docker para instanciar el Kit de Respuesta Rápida
+>>>>>>> a0d424865f093430b0539ec0bd5895871a889f1e
