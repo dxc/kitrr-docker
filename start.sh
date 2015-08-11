@@ -1,0 +1,6 @@
+#!/bin/bash
+echo Iniciando el Kit de Respuesta Rápida...
+docker start krr
+
+echo Iniciando el Person Finder...
+docker start pf
