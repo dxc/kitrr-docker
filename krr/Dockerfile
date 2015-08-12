@@ -1,11 +1,7 @@
-FROM python:3.4
-#FROM django:onbuild
+FROM python:3.4-slim
 
 RUN apt-get update && apt-get install -y \
-		mysql-client libmysqlclient-dev \
-		postgresql-client libpq-dev \
 		sqlite3 \
-		gcc \
 		git \
 	--no-install-recommends && rm -rf /var/lib/apt/lists/*
 

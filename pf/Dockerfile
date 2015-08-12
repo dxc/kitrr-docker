@@ -1,5 +1,5 @@
 # Imagen base
-FROM debian:latest
+FROM debian:jessie
 
 # Se instalan depenencias
 RUN apt-get -y update && apt-get install -y \
@@ -9,23 +9,24 @@ RUN apt-get -y update && apt-get install -y \
 	wget \
 	unzip \
 	python-pip \
-	python-dev
+	python-dev \
+	gcc \
+	gettext \
+	--no-install-recommends && \
+	apt-get clean
 
 # Se instala PIL 1.1.7
 RUN pip install "http://effbot.org/media/downloads/Imaging-1.1.7.tar.gz"
 
 # Se baja Google App Engine para Python
 WORKDIR /usr/lib
-RUN wget "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.24.zip" && unzip google_appengine_1.9.24.zip && rm google_appengine_1.9.24.zip
+RUN wget -nv "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.24.zip" && unzip -q google_appengine_1.9.24.zip && rm google_appengine_1.9.24.zip
 
 # Se agrega Google App Engine al PATH
 ENV PATH $PATH:/usr/lib/google_appengine
 
 # Se instala pytest
 RUN easy_install-2.7 pytest
-
-# Ultima dependencia de Person Finder
-RUN apt-get install -y gettext
 
 # Se baja el Person Finder con git
 RUN git clone https://github.com/dxc/people_finder_chile.git /pf
